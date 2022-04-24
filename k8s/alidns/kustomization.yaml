@@ -1,0 +1,4 @@
+resources:
+- alidns-webhook.yaml
+- alidns-secret.yaml
+- alidns-cluster-issuer.yaml
