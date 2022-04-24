@@ -23,7 +23,7 @@ pipeline {
         }
       }
       steps {
-        sh 'kubectl apply -f k8s/cert-manager.yaml'
+        sh 'kubectl apply -f cert-manager.yaml'
         sh 'kubectl apply -k k8s/selfsign'
       }
     }
@@ -38,11 +38,11 @@ pipeline {
       steps {
         script {
           if (DNS_VENDOR == 'ali') {
-            sh 'kubectl apply -f k8s/cert-manager.yaml'
+            sh 'kubectl apply -f cert-manager.yaml'
             sh 'kubectl apply -k k8s/alidns'
           }
           if (DNS_VENDOR == 'godaddy') {
-            sh 'kubectl apply -f k8s/cert-manager.yaml'
+            sh 'kubectl apply -f cert-manager.yaml'
             sh 'kubectl apply -k k8s/godaddydns'
           }
         }
