@@ -9,7 +9,12 @@ pipeline {
 
     stage('Clone dns-vender') {
       steps {
-        git(url: scm.userRemoteConfigs[1].url, branch: '$DNS_VENDOR_BRANCH', changelog: true, credentialsId: 'KK-github-key', poll: true)
+        sh '''
+          git clone scm.userRemoteConfigs[1].url /tmp
+          cd /tmp/dns-vender
+          git checkout -b $DNS_VENDOR_BRANCH
+          cd -
+        '''
       }
     }
 
