@@ -16,8 +16,8 @@ pipeline {
     stage('Deploy cert-manager for dev') {
       when {
         allOf {
-          expression DEPLOY_ENV == 'dev'
-          expression DEPLOY_TARGET == 'true'
+          expression { DEPLOY_ENV == 'dev' }
+          expression { DEPLOY_TARGET == 'true' }
         }
       }
       steps {
@@ -29,8 +29,8 @@ pipeline {
     stage('Deploy cert-manager for prod') {
       when {
         allOf {
-          expression DEPLOY_ENV == 'prod'
-          expression DEPLOY_TARGET == 'true'
+          expression { DEPLOY_ENV == 'prod' }
+          expression { DEPLOY_TARGET == 'true' }
         }
       }
       steps {
