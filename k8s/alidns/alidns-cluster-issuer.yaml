@@ -4,7 +4,7 @@ metadata:
   name: alidns-cluster-issuer
 spec:
   acme:
-    email:  YOUR-LETSENCRYPT-EMAIL
+    email:  tangsong0202@gmail.com
     server: https://acme-staging-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: alidns-account-key

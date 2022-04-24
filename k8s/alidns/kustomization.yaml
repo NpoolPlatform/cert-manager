@@ -5,5 +5,5 @@ resources:
 secretGenerator:
   - name: alidns-secret
     files:
-      - ../../dns-vender/alidns-secret/access-key
-      - ../../dns-vender/alidns-secret/secret-key
+      - access-key
+      - secret-key
