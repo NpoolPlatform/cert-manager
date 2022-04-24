@@ -14,7 +14,12 @@ pipeline {
     }
 
     stage('Deploy cert-manager for dev') {
-      when { DEPLOY_ENV == 'dev' }
+      when {
+        allOf {
+          expression DEPLOY_ENV == 'dev'
+          expression DEPLOY_TARGET == 'true'
+        }
+      }
       steps {
         sh 'kubectl apply -f k8s/cert-manager.yaml'
         sh 'kubectl apply -k k8s/selfsign'
@@ -22,7 +27,12 @@ pipeline {
     }
 
     stage('Deploy cert-manager for prod') {
-      when { DEPLOY_ENV == 'prod' }
+      when {
+        allOf {
+          expression DEPLOY_ENV == 'prod'
+          expression DEPLOY_TARGET == 'true'
+        }
+      }
       steps {
         script {
           if (DNS_VENDOR == 'ali') {
