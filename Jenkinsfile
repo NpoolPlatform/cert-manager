@@ -9,12 +9,7 @@ pipeline {
 
     stage('Clone dns-vender') {
       steps {
-        sh '''
-          git clone https://github.com/NpoolPlatform/dns-vender.git /tmp/dns-vender
-          cd /tmp/dns-vender
-          git checkout -b $DNS_VENDOR_BRANCH
-          cd -
-        '''
+        git(url: scm.userRemoteConfigs[1].url, branch: '$DNS_VENDOR_BRANCH', changelog: true, credentialsId: 'KK-github-key', poll: true)
       }
     }
 
