@@ -10,7 +10,7 @@ pipeline {
     stage('Clone dns-vender') {
       steps {
         sh '''
-          git clone https://github.com/NpoolPlatform/dns-vender.git /tmp
+          git clone https://github.com/NpoolPlatform/dns-vender.git /tmp/dns-vender
           cd /tmp/dns-vender
           git checkout -b $DNS_VENDOR_BRANCH
           cd -
