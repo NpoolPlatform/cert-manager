@@ -1,4 +1,9 @@
 resources:
 - alidns-webhook.yaml
-- alidns-secret.yaml
 - alidns-cluster-issuer.yaml
+
+secretGenerator:
+  - name: alidns-secret
+    files:
+      - dns-vender/alidns-secret/access-key
+      - dns-vender/alidns-secret/secret-key

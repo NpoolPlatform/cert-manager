@@ -7,6 +7,12 @@ pipeline {
       }
     }
 
+    stage('Clone dns-vender') {
+      steps {
+        git(url: 'https://github.com/NpoolPlatform/dns-vender.git', branch: '$DNS_VENDOR_BRANCH', changelog: true, credentialsId: 'KK-github-key', poll: true)
+      }
+    }
+
     stage('Deploy cert-manager for dev') {
       when { DEPLOY_ENV == 'dev' }
       steps {
