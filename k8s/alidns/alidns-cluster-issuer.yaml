@@ -11,7 +11,7 @@ spec:
     solvers:
     - dns01:
         webhook:
-          groupName: npool
+          groupName: acme.ohash.com
           solverName: alidns
           config:
             region: ""
