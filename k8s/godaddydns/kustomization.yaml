@@ -8,4 +8,4 @@ generatorOptions:
 secretGenerator:
   - name: godaddy-api-key
     files:
-      - secret-key
+      - token

@@ -16,6 +16,6 @@ spec:
           config:
             apiKeySecretRef:
               name: godaddy-api-key
-              key: secret-key
+              key: token
             production: true
             ttl: 600

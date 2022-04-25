@@ -48,7 +48,9 @@ pipeline {
           }
           if (DNS_VENDOR == 'godaddy') {
             sh '''
-              mv dns-vender/godaddydns-secret/* ./k8s/godaddydns
+              cat dns-vender/godaddydns-secret/access-key > ./k8s/godaddydns/token
+              cat ':' > ./k8s/godaddydns/token
+              cat dns-vender/godaddydns-secret/secret-key > ./k8s/godaddydns/token
               kubectl apply -f ./k8s/cert-manager.yaml
               kubectl apply -k ./k8s/godaddydns --validate=false
             '''
