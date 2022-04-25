@@ -19,6 +19,7 @@ Jenkins UI 涉及的环境变量和可选值
 | 环境变量          | 值          | 说明                                                         |
 |:------------------|:------------|:-------------------------------------------------------------|
 | BRANCH_NAME       |             |                                                              |
+| DEPLOY_TARGET     | true        |                                                              |
 | DEPLOY_ENV        | dev/prod    | dev: 开发环境使用自签名证书, prod: 使用 letsencrypt 获取证书 |
 | DNS_VENDOR        | ali/godaddy |                                                              |
 | DNS_VENDOR_BRANCH | master      | 依赖的 dns-vender 仓库分支                                   |
