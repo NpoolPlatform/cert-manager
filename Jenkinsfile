@@ -50,7 +50,7 @@ pipeline {
             sh '''
               mv dns-vender/godaddydns-secret/* ./k8s/godaddydns
               kubectl apply -f ./k8s/cert-manager.yaml
-              kubectl apply -k ./k8s/godaddydns
+              kubectl apply -k ./k8s/godaddydns --validate=false
             '''
           }
         }
