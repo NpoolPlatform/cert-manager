@@ -26,18 +26,6 @@ Jenkins UI 涉及的环境变量和可选值
 
 ---
 
-## dns vender
-
-由于此仓库需要访问第三方的 DNS 服务，属于隐私信息所以需要配合私有仓库 **dns-vender** 主要记录了第三方的 DNS 服务的一些私钥信息，用于创建 **secret** 资源
-
-文件夹名字和内部的文件命名规范
-
-```
-{vender}dns-secret
-  - access-key
-  - secret-key
-```
-
 ## 提供的签名机构名称(申请证书需要填写的 ClusterIssuer name)
 
 | ClusterIssuer | Name                      |
@@ -57,3 +45,12 @@ Jenkins UI 涉及的环境变量和可选值
 
 + 申请 **API Key**
 + 把生成的 access key 相关信息放入仓库 **dns-vender** 文档中的规范目录下即可
+
+
+## 整体的操作流程
+
+1. 注册域名, 并解析
+2. 在相应的域名申请平台,申请 API 访问的 key 并记录到私有仓库 dns-vender 仓库中(有相应的存放规范)
+3. 部署 cert-manager 需要按照 **k8s/alidns** 编写
+4. 部署 domain-certificate 需要按照 **k8s/ali-tls**
+5. 完成上述步骤, 证书就申请完成了
