@@ -52,3 +52,8 @@ Jenkins UI 涉及的环境变量和可选值
 + 切记选中 **Open API** 访问权限
 + 授权 **AliyunDNSFullAccess** 策略
 + 把生成的 access key 相关信息放入仓库 **dns-vender** 文档中的规范目录下即可
+
+## [Godaddy授权流程](https://developer.godaddy.com/keys)
+
++ 申请 **API Key**
++ 把生成的 access key 相关信息放入仓库 **dns-vender** 文档中的规范目录下即可
