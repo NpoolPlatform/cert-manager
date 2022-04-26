@@ -16,13 +16,12 @@ cert-manager auto create and renew secret file
 
 Jenkins UI 涉及的环境变量和可选值
 
-| 环境变量          | 值          | 说明                                                         |
-|:------------------|:------------|:-------------------------------------------------------------|
-| BRANCH_NAME       |             |                                                              |
-| DEPLOY_TARGET     | true        |                                                              |
-| DEPLOY_ENV        | dev/prod    | dev: 开发环境使用自签名证书, prod: 使用 letsencrypt 获取证书 |
-| DNS_VENDOR        | ali/godaddy |                                                              |
-| DNS_VENDOR_BRANCH | master      | 依赖的 dns-vendor 仓库分支                                   |
+| 环境变量      | 值          | 说明                                                         |
+|:--------------|:------------|:-------------------------------------------------------------|
+| BRANCH_NAME   |             |                                                              |
+| DEPLOY_TARGET | true        |                                                              |
+| DEPLOY_ENV    | dev/prod    | dev: 开发环境使用自签名证书, prod: 使用 letsencrypt 获取证书 |
+| DNS_VENDOR    | ali/godaddy |                                                              |
 
 ---
 
@@ -34,19 +33,6 @@ Jenkins UI 涉及的环境变量和可选值
 | alidns        | alidns-cluster-issuer     |
 | godaady       | godaadyns-cluster-issuer  |
 
-## 阿里云授权流程
-
-+ 创建账号 **cert-manager**
-+ 切记选中 **Open API** 访问权限
-+ 授权 **AliyunDNSFullAccess** 策略
-+ 把生成的 access key 相关信息放入仓库 **dns-vendor** 文档中的规范目录下即可
-
-## [Godaddy授权流程](https://developer.godaddy.com/keys)
-
-+ 申请 **API Key**
-+ 把生成的 access key 相关信息放入仓库 **dns-vendor** 文档中的规范目录下即可
-
-
 ## 整体的操作流程
 
 1. 注册域名, 并解析
@@ -54,3 +40,5 @@ Jenkins UI 涉及的环境变量和可选值
 3. 部署 cert-manager 需要按照 **k8s/alidns** 编写
 4. 部署 domain-certificate 需要按照 **k8s/ali-tls**
 5. 完成上述步骤, 证书就申请完成了
+
+## [可能的错误处理](./delete-ns.md)

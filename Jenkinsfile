@@ -7,14 +7,6 @@ pipeline {
       }
     }
 
-    stage('Clone dns-vendor') {
-      steps {
-        dir('dns-vendor') {
-          git(url: scm.userRemoteConfigs[1].url, branch: '$DNS_VENDOR_BRANCH', changelog: true, credentialsId: 'KK-github-key', poll: true)
-        }
-      }
-    }
-
     stage('Deploy cert-manager for dev') {
       when {
         allOf {
@@ -41,16 +33,14 @@ pipeline {
         script {
           if (DNS_VENDOR == 'ali') {
             sh '''
-              mv dns-vendor/alidns-secret/* ./k8s/alidns
               kubectl apply -f ./k8s/cert-manager.yaml
               kubectl apply -k ./k8s/alidns
             '''
           }
           if (DNS_VENDOR == 'godaddy') {
             sh '''
-              mv dns-vendor/godaddydns-secret/* ./k8s/godaddydns
               kubectl apply -f ./k8s/cert-manager.yaml
-              kubectl apply -k ./k8s/godaddydns --validate=false
+              kubectl apply -k ./k8s/godaddydns
             '''
           }
         }
