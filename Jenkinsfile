@@ -15,10 +15,7 @@ pipeline {
         }
       }
       steps {
-        sh '''
-          kubectl apply -f ./k8s/cert-manager.yaml
-          kubectl apply -k ./k8s/selfsign
-        '''
+        sh 'kubectl apply -f ./k8s/cert-manager.yaml'
       }
     }
 
