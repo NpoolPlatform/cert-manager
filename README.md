@@ -31,7 +31,7 @@ Jenkins UI 涉及的环境变量和可选值
 |:--------------|:--------------------------|
 | selfsign      | selfsigned-cluster-issuer |
 | alidns        | alidns-cluster-issuer     |
-| godaady       | godaadyns-cluster-issuer  |
+| godaady       | godaddyns-cluster-issuer  |
 
 ## 整体的操作流程
 
