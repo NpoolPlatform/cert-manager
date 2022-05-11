@@ -18,7 +18,7 @@ pipeline {
         '''
         script {
           if (env.DNS_VENDOR) {
-            kubectl apply -k ./k8s/$DNS_VENDOR
+            kubectl apply -k ./k8s/$DNS_VENDOR-dns
         }
       }
     }
