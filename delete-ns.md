@@ -33,7 +33,7 @@ nohup kubectl proxy &
 4. 执行以下命令
 
 ```
-curl -k -H "Content-Type: application/json" -X PUT --data-binary @tmp.json https://127.0.0.1:8001/api/v1/namespaces/<your-namespace>/finalize
+curl -k -H "Content-Type: application/json" -X PUT --data-binary @tmp.json http://127.0.0.1:8001/api/v1/namespaces/<your-namespace>/finalize
 ```
 
 5. 停止 **3** 开启的进程
