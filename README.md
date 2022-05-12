@@ -31,4 +31,24 @@ Jenkins UI 涉及的环境变量和可选值
 4. 部署 domain-certificate 需要按照 **k8s/ali-tls**
 5. 完成上述步骤, 证书就申请完成了
 
+## [Uninstall](https://cert-manager.io/docs/installation/kubectl/#uninstalling)
+
+1. 前置查询
+
+在删除 **cert-manager** 资源之前请确保以下资源都被清除干净**注意是全部命名空间下**
+
+> kubectl get Issuers,ClusterIssuers,Certificates,CertificateRequests,Orders,Challenges --all-namespaces
+
+如果确认以上资源都被清除，下面就可以删除 **cert-manager**, 不过可能导致 **已申请** 的证书被删除
+
+2. 删除 **cert-manager** 资源
+
+执行这一步骤之前确保
+
+    1. 先删除 **cert-manager** 资源
+
+    2. 然后再删除 **cert-manager** 所在的命名空间
+
+---
+
 ## [可能的错误处理](./delete-ns.md)
