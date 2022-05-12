@@ -20,7 +20,7 @@ pipeline {
         }
       }
     }
-
+  }
   post('Report') {
     fixed {
       script {
