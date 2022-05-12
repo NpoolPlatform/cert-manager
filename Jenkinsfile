@@ -12,9 +12,7 @@ pipeline {
         expression { DEPLOY_TARGET == 'true' }
       }
       steps {
-        sh '''
-          kubectl apply -f ./k8s/cert-manager.yaml
-        '''
+        sh 'kubectl apply -f ./k8s/cert-manager.yaml'
         script {
           if (env.DNS_VENDOR) {
             kubectl apply -k ./k8s/{env.DNS_VENDOR}-dns

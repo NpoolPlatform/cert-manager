@@ -25,14 +25,6 @@ Jenkins UI 涉及的环境变量和可选值
 
 ---
 
-## 提供的签名机构名称(申请证书需要填写的 ClusterIssuer name)
-
-| ClusterIssuer | Name                      |
-|:--------------|:--------------------------|
-| selfsign      | selfsigned-cluster-issuer |
-| alidns        | alidns-cluster-issuer     |
-| godaady       | godaadyns-cluster-issuer  |
-
 ## 整体的操作流程
 
 1. 注册域名, 并解析
