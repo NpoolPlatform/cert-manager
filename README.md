@@ -19,8 +19,7 @@ Jenkins UI 涉及的环境变量和可选值
 | 环境变量      | 值          | 说明                                                         |
 |:--------------|:------------|:-------------------------------------------------------------|
 | BRANCH_NAME   |             |                                                              |
-| DEPLOY_TARGET | true        |                                                              |
-| DNS_VENDOR    | ali/godaddy |                                                              |
+| DEPLOY_TARGET | true        |                                                              |                                                        |
 
 ---
 
