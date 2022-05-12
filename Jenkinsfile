@@ -7,39 +7,15 @@ pipeline {
       }
     }
 
-    stage('Deploy cert-manager for dev') {
+    stage('Deploy cert-manager') {
       when {
-        allOf {
-          expression { DEPLOY_ENV == 'dev' }
-          expression { DEPLOY_TARGET == 'true' }
-        }
+        expression { DEPLOY_TARGET == 'true' }
       }
       steps {
         sh 'kubectl apply -f ./k8s/cert-manager.yaml'
-      }
-    }
-
-    stage('Deploy cert-manager for prod') {
-      when {
-        allOf {
-          expression { DEPLOY_ENV == 'prod' }
-          expression { DEPLOY_TARGET == 'true' }
-        }
-      }
-      steps {
         script {
-          if (DNS_VENDOR == 'ali') {
-            sh '''
-              kubectl apply -f ./k8s/cert-manager.yaml
-              kubectl apply -k ./k8s/alidns
-            '''
-          }
-          if (DNS_VENDOR == 'godaddy') {
-            sh '''
-              kubectl apply -f ./k8s/cert-manager.yaml
-              kubectl apply -k ./k8s/godaddydns
-            '''
-          }
+          if (env.DNS_VENDOR) {
+            kubectl apply -k ./k8s/{env.DNS_VENDOR}-dns
         }
       }
     }
