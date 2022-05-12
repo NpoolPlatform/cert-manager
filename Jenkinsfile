@@ -16,6 +16,7 @@ pipeline {
           kubectl apply -f ./k8s/cert-manager.yaml
           sleep 15
           kubectl apply -k ./k8s/webhook
+        '''.stripIndent())
       }
     }
   }
