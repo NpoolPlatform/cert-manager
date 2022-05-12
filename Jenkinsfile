@@ -14,11 +14,10 @@ pipeline {
       steps {
         sh '''
           kubectl apply -f ./k8s/cert-manager.yaml
-          kubectl apply -k ./k8s/selfsign
         '''
         script {
           if (env.DNS_VENDOR) {
-            kubectl apply -k ./k8s/$DNS_VENDOR-dns
+            kubectl apply -k ./k8s/{env.DNS_VENDOR}-dns
         }
       }
     }
