@@ -14,7 +14,7 @@ pipeline {
       steps {
         sh (returnStdout: false, script: '''
           kubectl apply -f ./k8s/cert-manager.yaml
-          sleep 15
+          sleep 60
           kubectl apply -k ./k8s/webhook
         '''.stripIndent())
       }
