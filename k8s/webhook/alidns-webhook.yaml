@@ -124,7 +124,7 @@ metadata:
     app: alidns-webhook
 rules:
   - apiGroups:
-      - acme.alidns
+      - acme.ohash.com
     resources:
       - '*'
     verbs:
@@ -194,7 +194,7 @@ spec:
             - --tls-private-key-file=/tls/tls.key
           env:
             - name: GROUP_NAME
-              value: "acme.alidns"
+              value: "acme.ohash.com"
           ports:
             - name: https
               containerPort: 443
@@ -225,13 +225,13 @@ spec:
 apiVersion: apiregistration.k8s.io/v1
 kind: APIService
 metadata:
-  name: v1alpha1.acme.alidns
+  name: v1alpha1.acme.ohash.com
   labels:
     app: alidns-webhook
   annotations:
     cert-manager.io/inject-ca-from: "cert-manager/alidns-webhook-webhook-tls"
 spec:
-  group: acme.alidns
+  group: acme.ohash.com
   groupPriorityMinimum: 1000
   versionPriority: 15
   service:
