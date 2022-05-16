@@ -10,12 +10,22 @@ pipeline {
     stage('Deploy cert-manager') {
       when {
         expression { DEPLOY_TARGET == 'true' }
+        expression { DNS_VENDOR == '' }
       }
       steps {
         sh (returnStdout: false, script: '''
           kubectl apply -f ./k8s/cert-manager.yaml
-          sleep 60
-          kubectl apply -k ./k8s/webhook
+        '''.stripIndent())
+      }
+    }
+    stage('Deploy webhook') {
+      when {
+        expression { DEPLOY_TARGET == 'true' }
+        expression { DNS_VENDOR != '' }
+      }
+      steps {
+        sh (returnStdout: false, script: '''
+          kubectl apply -f ./k8s/webhook/${DNS_VENDOR}dns-webhook.yaml
         '''.stripIndent())
       }
     }
