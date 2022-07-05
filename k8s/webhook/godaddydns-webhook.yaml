@@ -69,7 +69,7 @@ metadata:
   name: godaddy-webhook:domain-solver
 rules:
 - apiGroups:
-  - acme.ohash.com
+  - acme.godaddydns.npool.top
   resources:
   - '*'
   verbs:
@@ -259,7 +259,7 @@ spec:
         - --tls-private-key-file=/tls/tls.key
         env:
         - name: GROUP_NAME
-          value: acme.ohash.com
+          value: acme.godaddydns.npool.top
         image: quay.io/snowdrop/cert-manager-webhook-godaddy:latest
         imagePullPolicy: IfNotPresent
         livenessProbe:
@@ -314,9 +314,9 @@ metadata:
   labels:
     app.kubernetes.io/name: godaddy-webhook
     app.kubernetes.io/version: 0.1.1
-  name: v1alpha1.acme.ohash.com
+  name: v1alpha1.acme.godaddydns.npool.top
 spec:
-  group: acme.ohash.com
+  group: acme.godaddydns.npool.top
   groupPriorityMinimum: 1000
   service:
     name: godaddy-webhook
