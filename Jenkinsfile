@@ -14,6 +14,7 @@ pipeline {
       }
       steps {
         sh (returnStdout: false, script: '''
+          kubectl apply -f ./k8s/namespace.yaml
           kubectl apply -f ./k8s/cert-manager.yaml
         '''.stripIndent())
       }
